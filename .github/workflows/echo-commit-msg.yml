@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: echo commit message
-      run: curl -X POST -d "{\"branch\":\"github.ref_name\",\"short_sha\":\"${GITHUB_SHA:0:7}\",\"msg\":\"${{ github.event.head_commit.message }}\"" -H 'Content-Type: application/json' https://httpdump.io/xffp0
+      run: |
+        curl -X POST -d '{\"branch\":\"github.ref_name\",\"short_sha\":\"${GITHUB_SHA:0:7}\",\"msg\":\"${{ github.event.head_commit.message }}\"}' -H 'Content-Type: application/json' https://httpdump.io/xffp0
 
 
 
